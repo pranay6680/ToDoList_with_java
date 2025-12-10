@@ -11,11 +11,13 @@ public class ToDoList {
 
         }
     }
-    public ArrayList<String> dele(ArrayList<String> arr, int delInput){
-            arr.remove(delInput);
-            return arr;
+
+    public ArrayList<String> dele(ArrayList<String> arr, int delInput) {
+        arr.remove(delInput);
+        return arr;
     }
-    public ArrayList<String> update(ArrayList<String> arr, int updateInput){
+
+    public ArrayList<String> update(ArrayList<String> arr, int updateInput) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the string to update");
         String latest = sc.nextLine();
@@ -24,7 +26,7 @@ public class ToDoList {
     }
 
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
         ToDoList todo = new ToDoList();
@@ -33,30 +35,28 @@ public class ToDoList {
         int size = sc.nextInt();
         sc.nextLine();
         System.out.println("Enter list to store");
-        for(int i = 0; i<size; i++){
+        for (int i = 0; i < size; i++) {
             arr.add(sc.nextLine());
 
         }
         System.out.println("Enter 1 to display list");
-        if(sc.nextInt() != 0) {
+        if (sc.nextInt() != 0) {
             todo.disp(arr);
         }
-        System.out.println("Enter 'del' to remove");
+        System.out.println("Enter 'del' or 'update' to remove or modify");
         String d = sc.next();
-        if(d.equalsIgnoreCase("del")){
+        if (d.equalsIgnoreCase("del")) {
             System.out.println("Enter index to delete");
-        int var = sc.nextInt();
-            todo.dele(arr, var );
+            int var = sc.nextInt();
+            sc.nextLine();
+            todo.dele(arr, var);
             System.out.println(arr);
-        }
-        System.out.println("Enter 'update' to modify");
-        String up = sc.next();
-        if(!up.equals("")){
+        }else if(d.equalsIgnoreCase("update") && !d.equals("")){
             System.out.println("Enter sequence num to update");
             int inp = sc.nextInt();
             todo.update(arr, inp);
             System.out.println(arr);
-        }
+    }
         sc.close();
     }
 }
