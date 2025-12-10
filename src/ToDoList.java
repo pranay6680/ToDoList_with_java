@@ -3,33 +3,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class ToDoList {
-
-    public void disp(ArrayList<String> arr) {
-        int i = 1;
-        for (String values : arr) {
-            System.out.println("List-" + i++ + ": " + values);
-
-        }
-    }
-
-    public ArrayList<String> dele(ArrayList<String> arr, int delInput) {
-        arr.remove(delInput);
-        return arr;
-    }
-
-    public ArrayList<String> update(ArrayList<String> arr, int updateInput) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the string to update");
-        String latest = sc.nextLine();
-        arr.set(updateInput, latest);
-        return arr;
-    }
-
-
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
-        ToDoList todo = new ToDoList();
+        ToDoMethods todo = new ToDoMethods();
         ArrayList<String> arr = new ArrayList<String>();
         System.out.println("Enter Size of an array");
         int size = sc.nextInt();
